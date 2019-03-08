@@ -1,0 +1,7 @@
+language: Go
+install: go get -u "github.com/gin-contrib/cors"
+         go get -u "github.com/gin-gonic/gin"
+         go get -u "github.com/jinzhu/gorm"
+         go get -u "github.com/jinzhu/gorm/dialects/sqlite"
+         go get -u "golang.org/x/crypto/bcrypt"
+script: go run go/src/registration.go
