@@ -1,5 +1,9 @@
-language: go
-before_install:
-- cp .netrc ~/.netrc
-- chmod 600 ~/.netrc
-script: go run go/src/registration.go
+matrix:
+  include:
+    - language: go
+      before_install:
+         - cp .netrc ~/.netrc 
+         - chmod 600 ~/.netrc
+      script: go run go/src/registration.go
+    - language: node_js
+      script: yarn start react-app/package.json
