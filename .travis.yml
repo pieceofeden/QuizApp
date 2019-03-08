@@ -7,4 +7,6 @@ matrix:
       script: go run go/src/registration.go
     - language: node_js
       node_js: 8.10.0
-      script: yarn start react-app/package.json
+      before_install:
+        cd react-app
+      script: yarn start package.json
