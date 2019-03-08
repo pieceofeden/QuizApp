@@ -6,5 +6,5 @@ matrix:
          - chmod 600 ~/.netrc
       script: go run go/src/registration.go
     - language: node_js
-      node_js: 4.0
+      node_js: ^4.8.0 || ^5.7.0 || ^6.2.2 || >=8.0.0
       script: yarn start react-app/package.json
