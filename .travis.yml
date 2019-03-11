@@ -6,8 +6,8 @@ matrix:
          - chmod 600 ~/.netrc
       script: go run go/src/registration.go
     - language: node_js
-      before_install:`
-         - cd react-app
+      before_install: cd react-app
+         - google-chrome-stable --headless --disable-gpu --remote-debugging-port=3000 http://localhost
       node_js: 8.10.0
       dist: trusty
       addons:
