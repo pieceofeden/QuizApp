@@ -6,10 +6,17 @@ matrix:
          - chmod 600 ~/.netrc
       script: go run go/src/registration.go
     - language: node_js
-      before_install: cd react-app
-         - google-chrome-stable --headless --disable-gpu --remote-debugging-port=3000 http://localhost
-      node_js: 8.10.0
+      before_script:
+         - "export DISPLAY=:99.0"
+         - "sh -e /etc/init.d/xvfb start"
+         - sleep 3 # give xvfb some time to start
+         - rackup  # start a Web server
+         - sleep 3 # give Web server some time to bind to sockets, etc
       dist: trusty
       addons:
          chrome: stable
-      script: yarn start package.json
+     before_install:
+         - # start your web application and listen on `localhost`
+         - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+         - cd react-app 
+     script: yarn start package.json
