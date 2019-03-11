@@ -11,6 +11,6 @@ matrix:
       addons:
          chrome: stable
       before_install:`
-        - google-chrome-stable --headless --disable-gpu --remote-debugging-port=3000 http://localhost
-        - cd react-app
+         - google-chrome-stable --headless --disable-gpu --remote-debugging-port=3000 http://localhost
+         - cd react-app
       script: yarn start package.json
