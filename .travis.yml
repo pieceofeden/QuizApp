@@ -9,11 +9,12 @@ matrix:
       node_js: 8.10.0
       before_install: 
          - cd react-app 
-      services:
-         - xvfb
+      before_script:
+         — export DISPLAY=:99.0
+         — sh -e /etc/init.d/xvfb start
+         — sleep 3
       dist: trusty
       addons:
           chrome: stable
       script: 
-         - xvfb-run make test
          - yarn start package.json
