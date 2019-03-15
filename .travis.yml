@@ -7,6 +7,10 @@ matrix:
       script: go run go/src/registration.go
     - language: node_js
       node_js: 8.10.0
+      env:
+        global:
+        # See https://git.io/vdao3 for details.
+        - JOBS=1
       before_install: 
          - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
          - cd react-app 
