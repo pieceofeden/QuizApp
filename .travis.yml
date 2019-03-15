@@ -12,5 +12,5 @@ matrix:
       addons:
           chrome: stable
       script: 
-          - yarn start package.json
           - google-chrome-stable
+          - yarn start package.json
