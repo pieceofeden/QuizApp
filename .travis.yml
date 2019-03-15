@@ -7,8 +7,9 @@ matrix:
       script: go run go/src/registration.go
     - language: node_js
       before_install: 
-         - cd react-app 
-         - google-chrome
+         - cd react-app
       addons:
           chrome: stable
+      before_script:
+         - google-chrome
       script: yarn start package.json
