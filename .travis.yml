@@ -1,9 +1,15 @@
+sudo: required
+dist: trusty
 matrix:
   include:
     - language: go
       before_install:
          - cp .netrc ~/.netrc 
          - chmod 600 ~/.netrc
+       before_script:
+          - export DISPLAY=:99.0
+          - sh -e /etc/init.d/xvfb start
+          - sleep 3
       script: go run go/src/registration.go
     - language: node_js
       node_js: 8.10.0
@@ -14,11 +20,6 @@ matrix:
       before_install: 
          - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
          - cd react-app 
-      before_script:
-         - export DISPLAY=:99.0
-         - sh -e /etc/init.d/xvfb start
-         - sleep 3
-      dist: trusty
       addons:
           chrome: stable
       script: 
