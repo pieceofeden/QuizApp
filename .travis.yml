@@ -10,6 +10,6 @@ matrix:
          - cd react-app
       addons:
           chrome: stable
-      before_script:
-         - google-chrome-stable
-      script: yarn start package.json
+      script: 
+          - yarn start package.json
+          - google-chrome-stable
