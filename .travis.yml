@@ -6,6 +6,7 @@ matrix:
          - chmod 600 ~/.netrc
       script: go run go/src/registration.go
     - language: node_js
+      node_js: 8.10.0
       before_install: 
          - cd react-app
       addons:
